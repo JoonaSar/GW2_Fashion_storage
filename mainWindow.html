@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+    <title>GW2 Fashion Storage</title>
+</head>
+<body>
+    Main window
+    <ul>
+
+    </ul>
+
+    <script>
+    const electron = require('electron')
+    const {ipcRenderer} = electron
+    const list = document.querySelector('ul')
+
+    ipcRenderer.on('character:add', function(e, name){
+        const li =  document.createElement('li')
+        const characterNameText = document.createTextNode(name)
+        li.appendChild(characterNameText)
+        list.appendChild(li)
+    })
+    </script>
+</body>

@@ -1,0 +1,22 @@
+{
+  "name": "gw2_fashion_storage",
+  "version": "1.0.0",
+  "description": "A desktop app to store Guild Wars 2 armor and color combinations",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoonaSar/GW2_Fashion_storage.git"
+  },
+  "author": "Joona Särkijärvi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JoonaSar/GW2_Fashion_storage/issues"
+  },
+  "homepage": "https://github.com/JoonaSar/GW2_Fashion_storage#readme",
+  "dependencies": {
+    "electron": "^8.0.3"
+  }
+}

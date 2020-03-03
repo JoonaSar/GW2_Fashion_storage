@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Add a character</title>
+    </head>
+    <body>
+        <form>
+            <div>
+                <label>Character name</label>
+                <input type ="text" id="name" autofocus>    
+            </div>
+            <div>
+                <label>Race</label> 
+                <div>
+                    <input type="radio" id="Human" name="race" value="human">
+                    <label for="human">Human</label><br>
+                    <input type="radio" id="Norn" name="race" value="norn">
+                    <label for="norn">Norn</label><br>
+                    <input type="radio" id="Asura" name="race" value="asura">
+                    <label for="asura">Asura</label> 
+                    <input type="radio" id="Charr" name="race" value="charr">
+                    <label for="charr">Charr</label> 
+                    <input type="radio" id="Sylvari" name="race" value="sylvari">
+                    <label for="sylvari">Sylvari</label> 
+                </div>
+            </div>
+            <button type="submit">Add character</button>
+        </form>
+    
+        <script>
+        const electron = require('electron')
+        const {ipcRenderer} = electron
+    
+        const form = document.querySelector('form')
+        form.addEventListener('submit', submitForm)
+    
+        function submitForm(e){
+            e.preventDefault()
+            console.log("Adding character")
+            const name = document.querySelector('#name').value
+            //const race = document.querySelector('#race')
+            ipcRenderer.send('character:add', name)
+        }
+        </script>
+    </body>
+</html>
