@@ -3,21 +3,50 @@
     <title>GW2 Fashion Storage</title>
 </head>
 <body>
-    Main window
-    <ul>
-
-    </ul>
-
+    <header>
+        <button id="characterButton">testCharacter</button>
+    </header>
+    <div>
+        <ul>
+            <li class="testCharacter character">
+                testCharacter (race here) (profession here)
+            </li>
+        </ul>    
+    </div>
+    
     <script>
     const electron = require('electron')
     const {ipcRenderer} = electron
     const list = document.querySelector('ul')
 
-    ipcRenderer.on('character:add', function(e, name, race){
+    ipcRenderer.on('character:add', function(e, name, race, profession){
         const li =  document.createElement('li')
-        const characterNameText = document.createTextNode(name +" "+race)
+        const img = document.createElement("IMG")
+        img.setAttribute("src", `${__dirname}/assets/${race}_icon.png`)
+        const img2 =  document.createElement("IMG")
+        img2.setAttribute("src", `${__dirname}/assets/${profession}_icon.png`)
+        const characterNameText = document.createTextNode(name +" "+race+" "+profession)
         li.appendChild(characterNameText)
+        li.appendChild(img)
+        li.appendChild(img2)
         list.appendChild(li)
     })
+
+    var chars = document.getElementById('characterButton')
+    chars.addEventListener('click', openCharacter("testCharacter"))
+
+    function openCharacter(name){
+        console.log(123)
+        var i;
+        var x = document.getElementsByClassName("character")
+        for(i=0; i<x.length; i++){
+            x[i].style.display = "none"
+        }
+        var x = document.getElementsByClassName(name)
+        for(i=0; i<x.length; i++){
+            x[i].style.display = "block"
+        }
+
+    }
     </script>
 </body>

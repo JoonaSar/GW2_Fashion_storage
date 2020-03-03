@@ -18,6 +18,19 @@
                     <option value="asura">Asura</option>
                   </select> 
             </div>
+            <div>
+                <select id="profession" name="profession">
+                    <option value="elementalist">Elementalist</option>
+                    <option value="engineer">Engineer</option>
+                    <option value="guardian">Guardian</option>
+                    <option value="mesmer">Mesmer</option>
+                    <option value="necromancer">Necromancer</option>
+                    <option value="ranger">Ranger</option>
+                    <option value="revenant">Revenant</option>
+                    <option value="thief">Thief</option>
+                    <option value="warrior">Warrior</option>
+                  </select> 
+            </div>
             <button type="submit">Add character</button>
         </form>
     
@@ -33,7 +46,8 @@
             console.log("Adding character")
             const name = document.querySelector('#name').value
             const race = document.querySelector('#race').value
-            ipcRenderer.send('character:add', name, race)
+            const profession = document.querySelector('#profession').value
+            ipcRenderer.send('character:add', name, race, profession)
         }
         </script>
     </body>

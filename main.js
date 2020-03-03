@@ -40,6 +40,7 @@ function createAddWindow(){
         width: 300,
         height: 200,
         title:'Add a character',
+        parent: mainWindow,
         
         webPreferences: {
             nodeIntegration: true
@@ -58,8 +59,8 @@ function createAddWindow(){
 }
 
 //Catch character:add
-ipcMain.on('character:add', function(e, name, race){
-    mainWindow.webContents.send('character:add', name, race)
+ipcMain.on('character:add', function(e, name, race, profession){
+    mainWindow.webContents.send('character:add', name, race, profession)
     addWindow.close()
 })
 
