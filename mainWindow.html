@@ -13,9 +13,9 @@
     const {ipcRenderer} = electron
     const list = document.querySelector('ul')
 
-    ipcRenderer.on('character:add', function(e, name){
+    ipcRenderer.on('character:add', function(e, name, race){
         const li =  document.createElement('li')
-        const characterNameText = document.createTextNode(name)
+        const characterNameText = document.createTextNode(name +" "+race)
         li.appendChild(characterNameText)
         list.appendChild(li)
     })

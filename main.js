@@ -58,8 +58,8 @@ function createAddWindow(){
 }
 
 //Catch character:add
-ipcMain.on('character:add', function(e, name){
-    mainWindow.webContents.send('character:add', name)
+ipcMain.on('character:add', function(e, name, race){
+    mainWindow.webContents.send('character:add', name, race)
     addWindow.close()
 })
 
@@ -73,9 +73,6 @@ const mainMenuTemplate = [
                 click(){
                     createAddWindow()
                 }
-            },
-            {
-                label: 'Clear items'
             },
             {
                 label: 'Quit',
